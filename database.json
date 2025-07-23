@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Phạm Minh Tuấn",
+      "username": "tuanpm",
+      "password": "tuan123",
+      "department": "Kỹ thuật",
+      "role": "Kỹ sư phần mềm",
+      "performanceScore": 8.9
+    },
+    {
+      "id": "2",
+      "name": "Lê Thị Mai",
+      "username": "mailt",
+      "password": "mai123",
+      "department": "Nhân sự",
+      "role": "Chuyên viên tuyển dụng",
+      "performanceScore": 7.4
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "userId": "1",
+      "criteria": "Chất lượng công việc",
+      "score": 9,
+      "comment": "Hoàn thành đúng hạn, chất lượng cao",
+      "date": "2024-07-01T09:00:00.000Z",
+      "reviewer": "Trưởng phòng An"
+    },
+    {
+      "id": 2,
+      "userId": "1",
+      "criteria": "Tinh thần làm việc nhóm",
+      "score": 8.5,
+      "comment": "Hợp tác tốt với đồng nghiệp",
+      "date": "2024-07-05T14:30:00.000Z",
+      "reviewer": "Trưởng nhóm Hùng"
+    },
+    {
+      "id": 3,
+      "userId": "2",
+      "criteria": "Tuyển dụng hiệu quả",
+      "score": 7,
+      "comment": "Cần cải thiện thời gian xử lý hồ sơ",
+      "date": "2024-06-25T10:00:00.000Z",
+      "reviewer": "Trưởng phòng Hương"
+    }
+  ]
+}

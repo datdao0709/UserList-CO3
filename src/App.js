@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Login from "./baitap/Login";
+import Register from "./baitap/Register";
+import UserList from "./baitap/UserList";
+import AddUser from "./baitap/AddUser";
+import EditUser from "./baitap/EditUser";
+import ViewUser from "./baitap/ViewUser";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/" element={<UserList />} />
+                <Route path="/add-user" element={<AddUser />} />
+                <Route path="/edit-user/:id" element={<EditUser />} />
+                <Route path="/view-user/:id" element={<ViewUser />} />
+            </Routes>
+    );
 }
 
 export default App;
