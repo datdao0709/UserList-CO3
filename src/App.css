@@ -1,0 +1,23 @@
+/* App.css */
+
+.header {
+    background-color: #f8f8f8;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header .btn {
+    margin-left: 12px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.header .btn:hover {
+    background-color: #0056b3;
+}

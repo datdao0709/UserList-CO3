@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import '../style/Register.css';
 
 export default function Register() {
     const [user, setUser] = useState({ username: '', password: '', confirmPassword: '' });
@@ -10,31 +11,30 @@ export default function Register() {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setUser((prev) => ({ ...prev, [name]: value }));
+        setUser(prev => ({ ...prev, [name]: value }));
         setError('');
     };
 
+    const validateInput = () => {
+        const { username, password, confirmPassword } = user;
+        if (!username || !password || !confirmPassword) return 'Vui lòng nhập đầy đủ thông tin.';
+        if (password.length < 6) return 'Mật khẩu phải có ít nhất 6 ký tự.';
+        if (password !== confirmPassword) return 'Mật khẩu xác nhận không khớp.';
+        return '';
+    };
+
     const handleRegister = async () => {
-        if (!user.username || !user.password || !user.confirmPassword) {
-            setError('Vui lòng nhập đầy đủ thông tin.');
-            return;
-        }
-        if (user.password !== user.confirmPassword) {
-            setError('Mật khẩu xác nhận không khớp.');
-            return;
-        }
-        if (user.password.length < 6) {
-            setError('Mật khẩu phải có ít nhất 6 ký tự.');
+        const validationError = validateInput();
+        if (validationError) {
+            setError(validationError);
             return;
         }
 
         setLoading(true);
-        setError('');
         try {
-            const checkRes = await axios.get(`http://localhost:8888/users/check?username=${user.username}`);
-            if (checkRes.data.exists) {
+            const { data } = await axios.get(`http://localhost:8888/users/check?username=${user.username}`);
+            if (data.exists) {
                 setError('Tên đăng nhập đã tồn tại.');
-                setLoading(false);
                 return;
             }
 
@@ -42,8 +42,10 @@ export default function Register() {
                 username: user.username,
                 password: user.password,
             });
+
             navigate('/login');
-        } catch (error) {
+        } catch (err) {
+            console.error('Lỗi API:', err);
             setError('Lỗi khi đăng ký. Vui lòng thử lại.');
         } finally {
             setLoading(false);
@@ -51,16 +53,20 @@ export default function Register() {
     };
 
     return (
-        <div className="container">
+        <div className="register-container">
             <h2>Đăng ký</h2>
-            {error && <p className="error">{error}</p>}
-            {loading && <p className="loading">Đang tải...</p>}
+
+            {error && <p className="register-error">{error}</p>}
+            {loading && <p className="register-loading">Đang tải...</p>}
+
             <input
                 type="text"
                 name="username"
                 placeholder="Tên đăng nhập"
                 value={user.username}
                 onChange={handleChange}
+                className="register-input"
+                autoComplete="off"
             />
             <input
                 type="password"
@@ -68,6 +74,8 @@ export default function Register() {
                 placeholder="Mật khẩu"
                 value={user.password}
                 onChange={handleChange}
+                className="register-input"
+                autoComplete="off"
             />
             <input
                 type="password"
@@ -75,12 +83,20 @@ export default function Register() {
                 placeholder="Xác nhận mật khẩu"
                 value={user.confirmPassword}
                 onChange={handleChange}
+                className="register-input"
+                autoComplete="off"
             />
-            <button onClick={handleRegister} disabled={loading}>
+
+            <button
+                onClick={handleRegister}
+                disabled={loading}
+                className="register-button"
+            >
                 {loading ? 'Đang đăng ký...' : 'Đăng ký'}
             </button>
-            <p>
-                Đã có tài khoản? <Link to="/login" className="add-new-link">Đăng nhập</Link>
+
+            <p className="register-link">
+                Đã có tài khoản? <Link to="/login">Đăng nhập</Link>
             </p>
         </div>
     );

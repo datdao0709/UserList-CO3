@@ -11,17 +11,44 @@
     },
     {
       "id": "2",
-      "name": "Lê Thị Mai",
-      "username": "mailt",
-      "password": "mai123",
+      "name": "Nguyễn Thị Hoa",
+      "username": "hoant",
+      "password": "hoa456",
+      "department": "Kế toán",
+      "role": "Kế toán viên",
+      "performanceScore": 7.5
+    },
+    {
+      "id": "3",
+      "name": "Trần Văn An",
+      "username": "antv",
+      "password": "an789",
+      "department": "Kinh doanh",
+      "role": "Trưởng phòng",
+      "performanceScore": 9.2
+    },
+    {
+      "id": "4",
+      "name": "Lê Thị Hạnh",
+      "username": "hanhlt",
+      "password": "hanh101",
       "department": "Nhân sự",
       "role": "Chuyên viên tuyển dụng",
-      "performanceScore": 7.4
+      "performanceScore": 8
+    },
+    {
+      "id": "5",
+      "name": "Đỗ Mạnh Cường",
+      "username": "cuongdm",
+      "password": "cuong202",
+      "department": "Marketing",
+      "role": "Nhân viên marketing",
+      "performanceScore": 7.8
     }
   ],
   "reviews": [
     {
-      "id": 1,
+      "id": "1",
       "userId": "1",
       "criteria": "Chất lượng công việc",
       "score": 9,
@@ -30,22 +57,40 @@
       "reviewer": "Trưởng phòng An"
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": "1",
-      "criteria": "Tinh thần làm việc nhóm",
-      "score": 8.5,
+      "criteria": "Thái độ làm việc",
+      "score": 8,
       "comment": "Hợp tác tốt với đồng nghiệp",
-      "date": "2024-07-05T14:30:00.000Z",
-      "reviewer": "Trưởng nhóm Hùng"
+      "date": "2024-07-05T10:30:00.000Z",
+      "reviewer": "Trưởng phòng An"
     },
     {
-      "id": 3,
+      "id": "3",
       "userId": "2",
-      "criteria": "Tuyển dụng hiệu quả",
+      "criteria": "Chất lượng công việc",
       "score": 7,
-      "comment": "Cần cải thiện thời gian xử lý hồ sơ",
-      "date": "2024-06-25T10:00:00.000Z",
-      "reviewer": "Trưởng phòng Hương"
+      "comment": "Đáp ứng yêu cầu cơ bản",
+      "date": "2024-07-03T14:15:00.000Z",
+      "reviewer": "Trưởng phòng An"
+    },
+    {
+      "id": "4",
+      "userId": "3",
+      "criteria": "Khả năng lãnh đạo",
+      "score": 9,
+      "comment": "Lãnh đạo nhóm hiệu quả",
+      "date": "2024-07-04T13:00:00.000Z",
+      "reviewer": "Giám đốc"
+    },
+    {
+      "id": "5",
+      "userId": "4",
+      "criteria": "Kỹ năng giao tiếp",
+      "score": 8,
+      "comment": "Giao tiếp tốt, rõ ràng",
+      "date": "2024-07-06T11:00:00.000Z",
+      "reviewer": "Trưởng phòng An"
     }
   ]
 }
