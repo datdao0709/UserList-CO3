@@ -15,7 +15,7 @@
 
 .register-input {
     width: 100%;
-    padding: 10px;
+    padding: 12px 5px;
     margin-bottom: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -24,7 +24,7 @@
 
 .register-button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #28a745;
     color: white;
     font-size: 16px;

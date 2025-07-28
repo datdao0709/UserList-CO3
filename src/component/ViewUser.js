@@ -18,8 +18,8 @@ export default function ViewUser() {
             setLoading(true);
             try {
                 const [userRes, reviewsRes] = await Promise.all([
-                    axios.get(`http://localhost:3000/users/${id}`),
-                    axios.get(`http://localhost:3000/reviews?userId=${id}`)
+                    axios.get(`http://localhost:8888/users/${id}`),
+                    axios.get(`http://localhost:8888/reviews?userId=${id}`)
                 ]);
                 setUser(userRes.data);
                 setReviews(reviewsRes.data);
@@ -55,7 +55,7 @@ export default function ViewUser() {
                 score: Number(score),
                 date: new Date().toISOString()
             };
-            const { data } = await axios.post('http://localhost:3000/reviews', review);
+            const { data } = await axios.post('http://localhost:8888/reviews', review);
             setReviews([...reviews, data]);
             setNewReview({ criteria: '', score: '', comment: '', reviewer: '' });
         } catch {
@@ -68,7 +68,7 @@ export default function ViewUser() {
     const handleDelete = async (rid) => {
         if (!window.confirm('Xóa đánh giá này?')) return;
         try {
-            await axios.delete(`http://localhost:3000/reviews/${rid}`);
+            await axios.delete(`http://localhost:8888/reviews/${rid}`);
             setReviews(reviews.filter(r => r.id !== rid));
         } catch {
             setError('Lỗi khi xóa.');

@@ -7,7 +7,7 @@ export default function UserList() {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/users")
+        axios.get("http://localhost:8888/users")
             .then(res => setUsers(res.data))
             .catch(err => console.log("Lỗi khi gọi API:", err));
     }, []);
@@ -52,7 +52,7 @@ export default function UserList() {
                                 className="delete"
                                 onClick={() => {
                                     if (window.confirm("Bạn có chắc chắn muốn xóa?")) {
-                                        axios.delete(`http://localhost:3000/users/${user.id}`)
+                                        axios.delete(`http://localhost:8888/users/${user.id}`)
                                             .then(() => {
                                                 setUsers(users.filter(u => u.id !== user.id));
                                             });

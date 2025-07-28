@@ -13,7 +13,7 @@ export default function EditUser() {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/users/${id}`)
+        axios.get(`http://localhost:8888/users/${id}`)
             .then(res => setUser(res.data))
             .catch(err => console.error("Lỗi khi tải người dùng:", err));
     }, [id]);
@@ -26,7 +26,7 @@ export default function EditUser() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:3000/users/${id}`, user);
+            await axios.put(`http://localhost:8888/users/${id}`, user);
             navigate("/");
         } catch (err) {
             console.error("Lỗi khi cập nhật:", err);
